@@ -1,0 +1,82 @@
+body{
+    background: #1e293b;
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+.login-screen{
+    background: #1e293b;
+    place-items: center;
+    min-height: 100vh;
+    display: grid;
+}
+
+.login-card{
+    background-color: #fff;
+    width: 100%;
+    max-width: 400px;
+    padding: 2rem;
+    border-radius: 12px;
+}
+
+.organization{
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    margin-bottom: 2rem;
+}
+
+.column-itens{
+    display: flex;
+    flex-direction: column;
+}
+
+.column-itens span{
+    font-size: 0.65rem;
+    color: #94a3b8;
+    letter-spacing: 0.1em;
+}
+
+.column-itens strong{
+    color: #000000;
+    font-size: 1rem;
+    letter-spacing: 0.05em;
+}
+
+.box-ftc{
+    background-color: #1e293b;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    color: #fff;
+    letter-spacing: -1px;
+}
+
+.intro{
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.intro *{
+    margin: 0;
+}
+
+.intro h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #0f172a;      /* quase preto */
+}
+
+.minor{
+    color: #2958a3;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.minor-information{
+    color: #94a3b8;
+    font-size: 0.75rem;
+}
+
