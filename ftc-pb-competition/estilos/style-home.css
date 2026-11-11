@@ -1,3 +1,96 @@
-.layout{
+body{
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    margin: 0;
+}
+
+.layout {
     display: flex;
+    min-height: 100vh;
+}
+
+.menu {
+    width: 260px;
+    flex-shrink: 0;
+    background-color: #1e293b;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.conteudo {
+    flex: 1;
+    padding: 2rem;
+}
+
+.menu-lista {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.menu-lista a {
+    display: block;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    color: #94a3b8;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.menu-lista a:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+    color: #fff;
+}
+
+.menu-lista a.ativo {
+    background-color: #2958a3;
+    color: #fff;
+}
+
+.secao {
+    display: none;
+}
+
+.secao.ativa {
+    display: block;
+}
+
+.tabela-container {
+    background-color: #fff;
+    border-radius: 12px;
+    overflow-x: auto;
+}
+
+.tabela {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabela th {
+    text-align: left;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #94a3b8;
+    padding: 1rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.tabela td {
+    padding: 1rem;
+    border-bottom: 1px solid #f1f5f9;
+    color: #0f172a;
+}
+
+.tabela tbody tr:hover {
+    background-color: #f8fafc;
+}
+
+.tabela tbody tr:nth-child(-n+3) td:first-child {
+    font-weight: 700;
+    color: #3b5bdb;
 }

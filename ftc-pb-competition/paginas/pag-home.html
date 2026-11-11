@@ -1,18 +1,67 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FTC|PB Regional</title>
-</head>
-<body>
-    <div class="layout">
-        <nav class="menu">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>FTC|PB Regional</title>
+        <link rel="stylesheet" href="../estilos/base.css">
+        <link rel="stylesheet" href="../estilos/style-home.css">
+        <script src="../scripts/script-home.js" defer></script>
+    </head>
+    <body>
+        <div class="layout">
+            <nav class="menu">
+                <div class="organization">
+                    <div class="box-ftc">FTC</div>
+                    <div class="column-itens">
+                        <strong>COMPETITION</strong>
+                        <span>REGIONAL · PARAÍBA</span>
+                    </div>
+                </div>
 
-        </nav>
-        <main class="conteudo">
+                <ul class="menu-lista">
+                    <li><a href="#" class="ativo" data-secao="ranking">Ranking</a></li>
+                    <li><a href="#" data-secao="equipes">Equipes</a></li>
+                    <li><a href="#" data-secao="partidas">Partidas</a></li>
+                    <li><a href="#" data-secao="resultados">Resultados</a></li>
+                </ul>
+            </nav>
 
-        </main>
-    </div>
-</body>
+            <main class="conteudo">
+                <section id="ranking" class="secao ativa">
+                    <header class="secao-topo">
+                        <h1>Ranking</h1>
+                        <p class="minor-information">Classificação geral da competição</p>
+                    </header>
+
+                    <div class="tabela-container">
+                        <table class="tabela">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Equipe</th>
+                                    <th>Pontos</th>
+                                    <th>Partidas</th>
+                                </tr>
+                            </thead>
+                            <tbody id="ranking-corpo">
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section id="equipes" class="secao">
+                    <h1>Equipes</h1>
+                </section>
+
+                <section id="partidas" class="secao">
+                    <h1>Partidas</h1>
+                </section>
+
+                <section id="resultados" class="secao">
+                    <h1>Resultados</h1>
+                </section>
+            </main>
+        </div>
+    </body>
 </html>

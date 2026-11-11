@@ -24,13 +24,13 @@ input{
 button{
     padding: 0.75rem;
     border: none;
-    background-color: #0f172a;
+    background-color: #2958a3;
     color: #fff;
     font-size: 1rem;
     border-radius: 5px;
     font-family: inherit;
     cursor: pointer;
-    min-width: 400px;
+    width: 100%;
 }
 
 .login-screen{
@@ -48,18 +48,6 @@ button{
     border-radius: 12px;
 }
 
-.organization{
-    display: flex;
-    align-items: center;
-    gap: 0.55rem;
-    margin-bottom: 2rem;
-}
-
-.column-itens{
-    display: flex;
-    flex-direction: column;
-}
-
 .column-itens span{
     font-size: 0.65rem;
     color: #94a3b8;
@@ -70,17 +58,6 @@ button{
     color: #000000;
     font-size: 1rem;
     letter-spacing: 0.05em;
-}
-
-.box-ftc{
-    background-color: #1e293b;
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
-    display: grid;
-    place-items: center;
-    color: #fff;
-    letter-spacing: -1px;
 }
 
 .intro{
