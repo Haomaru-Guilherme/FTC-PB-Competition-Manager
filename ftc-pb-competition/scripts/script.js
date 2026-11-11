@@ -1,6 +1,4 @@
-console.log("script carregou");
 const form = document.getElementById("login-form");
-console.log(form)
 form.addEventListener("submit", function (event) {
     event.preventDefault();
     const usuario = document.getElementById("username").value;
