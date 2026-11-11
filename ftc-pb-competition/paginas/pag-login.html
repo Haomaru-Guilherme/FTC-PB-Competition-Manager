@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FTC|PB Regional</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../estilos/style.css">
+    <script src="../scripts/script.js" defer></script>
+    
 </head>
 <body>
     <section class="login-screen">
@@ -23,12 +25,18 @@
                 <h1>Acesse o painel</h1>
                 <p class="minor-information">Entre com suas credenciais para acompanhar os resultados da competição</p>
             </div>
-            <form>
-                <label for="username">Usuário</label>
-                <input type="text" placeholder="Digite seu usuário" required>
-                <label for="password">Senha</label>
-                <input type="password" placeholder="Digite sua senha" required>
-                <button type="submit">Entrar <span>→</span></button>
+            <form id="login-form">
+                <div class="field">
+                    <label for="username">Usuário</label>
+                    <input type="text" placeholder="Digite seu usuário" id="username" required>
+                </div>
+                <div class="field">
+                    <label for="password">Senha</label>
+                    <input type="password" placeholder="Digite sua senha" id="password" required>
+                </div>
+                <div>
+                    <button type="submit">Entrar <span>→</span></button>
+                </div>
             </form>
         </div>
     </section>

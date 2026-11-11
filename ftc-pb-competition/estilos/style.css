@@ -3,6 +3,36 @@ body{
     font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-top: 1rem;
+}
+
+label{
+    font-weight: 600;
+    color: #0f172a;
+}
+
+input{
+    padding: 0.75rem 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 5px;
+}
+
+button{
+    padding: 0.75rem;
+    border: none;
+    background-color: #0f172a;
+    color: #fff;
+    font-size: 1rem;
+    border-radius: 5px;
+    font-family: inherit;
+    cursor: pointer;
+    min-width: 400px;
+}
+
 .login-screen{
     background: #1e293b;
     place-items: center;
@@ -80,3 +110,8 @@ body{
     font-size: 0.75rem;
 }
 
+.field{
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
