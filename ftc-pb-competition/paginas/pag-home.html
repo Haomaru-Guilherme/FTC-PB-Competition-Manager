@@ -25,43 +25,53 @@
                     <li><a href="#" data-secao="partidas">Partidas</a></li>
                     <li><a href="#" data-secao="resultados">Resultados</a></li>
                 </ul>
+                <a class="btn-sair" href="pag-login.html">Sair da conta <span>↩</span></a>
             </nav>
 
-            <main class="conteudo">
-                <section id="ranking" class="secao ativa">
-                    <header class="secao-topo">
-                        <h1>Ranking</h1>
-                        <p class="minor-information">Classificação geral da competição</p>
-                    </header>
-
-                    <div class="tabela-container">
-                        <table class="tabela">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Equipe</th>
-                                    <th>Pontos</th>
-                                    <th>Partidas</th>
-                                </tr>
-                            </thead>
-                            <tbody id="ranking-corpo">
-                            </tbody>
-                        </table>
+               <div class="area-principal">
+                <header class="topbar">
+                    <input type="search" class="busca" placeholder="🔍︎ Buscar equipes...">
+                    <div class="topbar-acoes">
+                        <button class="icone-btn" aria-label="Notificações">
+                            <img src="../imagens/sino.png" alt="sino" width="20"><span class="ponto"></span>
+                        </button>
+                        <div class="perfil">
+                            <div class="avatar">J</div>
+                        </div>
                     </div>
-                </section>
-
-                <section id="equipes" class="secao">
-                    <h1>Equipes</h1>
-                </section>
-
-                <section id="partidas" class="secao">
-                    <h1>Partidas</h1>
-                </section>
-
-                <section id="resultados" class="secao">
-                    <h1>Resultados</h1>
-                </section>
-            </main>
+                </header>
+                <main class="conteudo">
+                    <section id="ranking" class="secao ativa">
+                        <header class="secao-topo">
+                            <h1>Ranking</h1>
+                            <p class="minor-information">Classificação geral da competição</p>
+                        </header>
+                        <div class="tabela-container">
+                            <table class="tabela">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Equipe</th>
+                                        <th>Pontos</th>
+                                        <th>Partidas</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="ranking-corpo">
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                    <section id="equipes" class="secao">
+                        <h1>Equipes</h1>
+                    </section>
+                    <section id="partidas" class="secao">
+                        <h1>Partidas</h1>
+                    </section>
+                    <section id="resultados" class="secao">
+                        <h1>Resultados</h1>
+                    </section>
+                </main>
+            </div>
         </div>
     </body>
 </html>

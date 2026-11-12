@@ -20,9 +20,9 @@ links.forEach(function (link) {
 });
 
 const equipes = [
-    { nome: "Team Alpha", pontos: 12, partidas: 4 },
-    { nome: "Team Beta", pontos: 10, partidas: 4 },
-    { nome: "Team Gamma", pontos: 8, partidas: 4 },
+    { nome: "Team Alpha", pontos: 0, partidas: 0 },
+    { nome: "Team Beta", pontos: 0, partidas: 0 },
+    { nome: "Team Gamma", pontos: 0, partidas: 0 },
 ];
 
 const corpo = document.getElementById("ranking-corpo");
