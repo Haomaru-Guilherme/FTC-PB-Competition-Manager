@@ -9,7 +9,7 @@ body{
 }
 
 .menu {
-    width: 260px;
+    width: 200px;
     flex-shrink: 0;
     background-color: #1e293b;
     padding: 1.5rem;
@@ -72,6 +72,7 @@ body{
     background-color: #fff;
     border-radius: 12px;
     overflow-x: auto;
+    padding: 1rem;
 }
 
 .tabela {
@@ -105,6 +106,7 @@ body{
 }
 
 .area-principal{
+    background-color: #eeeeee;
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -120,11 +122,12 @@ body{
     justify-content: space-between;
     gap: 1rem;
     padding: 0.75rem 2rem;
-    background-color: #fff;
-    border-bottom: 1px solid #e5e7eb;
+    background-color: #eeeeee;
+    border-bottom: 1px solid #c6c8ca;
 }
 
 .busca {
+    background-color: #eeeeee;
     width: 100%;
     max-width: 320px;
     padding: 0.5rem 1.25rem;
@@ -181,4 +184,161 @@ body{
     place-items: center;
     font-weight: 600;
     font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.minor-information{
+    color: #94a3b8;
+    font-size: 0.75rem;
+}
+
+.top-ranking {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    width: 100%;
+}
+
+.information-ranking{
+    display: flex;
+    flex-direction: column;
+    color: #0f172a;
+}
+
+.information-r .minor-information {
+    margin: 0;
+}
+
+.high-score{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    background-color: #1e293b;
+    border-radius: 12px;
+    border-left: 4px solid #3b82f6;
+}
+
+.leader-ranking{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.15rem;
+    
+}
+
+.destaque-rotulo {
+    display: flex;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #ffffff;
+    gap: 0.2rem;
+}
+
+.equipe-celula {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.equipe-logo {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: contain;
+}
+
+.destaque-logo {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    padding: 4px;
+    object-fit: contain;
+}
+
+.destaque-nome {
+    font-size: 1.25rem;
+    color: #fff;
+}
+
+.destaque-pontos {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-left: 1rem;
+    padding-left: 1.25rem;
+    border-left: 1px solid rgba(255, 255, 255, 0.15);
+    color: #94a3b8;
+    font-size: 0.75rem;
+}
+
+.destaque-pontos strong {
+    font-size: 2rem;
+    line-height: 1;
+    color: #fff;
+}
+
+.titulo-classificacao{
+    padding-left: 1.01rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    gap: 1rem;
+}
+
+.titulo-classificacao h2{
+    margin: 0;
+    font-size: 1.1rem;
+    color: #0f172a;
+}
+
+.titulo-classificacao span{
+    font-size: 0.83rem;
+    color: #94a3b8;
+}
+
+.btn-menu {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+}
+
+.overlay {
+    display: none;
+}
+
+@media (max-width: 900px) {
+    .btn-menu {
+        display: block;
+    }
+
+    .menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 30;
+        transform: translateX(-100%);
+        transition: transform 0.25s ease;
+    }
+
+    .menu.aberto {
+        transform: translateX(0);
+    }
+
+    .overlay.visivel {
+        display: block;
+        position: fixed;
+        inset: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 20;
+    }
 }

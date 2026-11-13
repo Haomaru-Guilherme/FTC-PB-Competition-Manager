@@ -20,34 +20,55 @@
                 </div>
 
                 <ul class="menu-lista">
-                    <li><a href="#" class="ativo" data-secao="ranking">Ranking</a></li>
-                    <li><a href="#" data-secao="equipes">Equipes</a></li>
-                    <li><a href="#" data-secao="partidas">Partidas</a></li>
-                    <li><a href="#" data-secao="resultados">Resultados</a></li>
+                    <li><a href="#" class="ativo" data-secao="ranking" aria-label="Abrir seção de ranking">Ranking</a></li>
+                    <li><a href="#" data-secao="equipes" aria-label="Abrir seção de equipes">Equipes</a></li>
+                    <li><a href="#" data-secao="partidas" aria-label="Abrir seção de partidas">Partidas</a></li>
+                    <li><a href="#" data-secao="resultados" aria-label="Abrir seção de resutados">Resultados</a></li>
+                    <li><a href="#" data-secao="notificacoes">Notificações</a></li>
+                    <li><a href="#" data-secao="perfil" aria-label="Abrir seção de perfil">Perfil</a></li>
                 </ul>
                 <a class="btn-sair" href="pag-login.html">Sair da conta <span>↩</span></a>
             </nav>
-
-               <div class="area-principal">
-                <header class="topbar">
-                    <input type="search" class="busca" placeholder="🔍︎ Buscar equipes...">
-                    <div class="topbar-acoes">
-                        <button class="icone-btn" aria-label="Notificações">
-                            <img src="../imagens/sino.png" alt="sino" width="20"><span class="ponto"></span>
-                        </button>
-                        <div class="perfil">
-                            <div class="avatar">J</div>
+            <div class="overlay" id="overlay"></div>
+            
+            <div class="area-principal">
+                    <header class="topbar">
+                        <button class="btn-menu" id="btn-menu" aria-label="Abrir menu">☰</button>
+                        <input type="search" class="busca" placeholder="🔍︎ Buscar equipes...">
+                        <div class="topbar-acoes">
+                            <button class="icone-btn" aria-label="Notificações" data-secao="notificacoes">
+                                <img src="../imagens/sino.png" alt="sino" width="20"><span class="ponto"></span>
+                            </button>
+                            <div class="perfil">
+                                <div class="avatar" data-secao="perfil" aria-label="Abrir perfil">J</div>
+                            </div>
                         </div>
-                    </div>
-                </header>
+                    </header>
+                
                 <main class="conteudo">
                     <section id="ranking" class="secao ativa">
-                        <header class="secao-topo">
-                            <h1>Ranking</h1>
-                            <p class="minor-information">Classificação geral da competição</p>
-                        </header>
+                            <header class="top-ranking">
+                                <div class="information-ranking">
+                                    <h1>Ranking</h1>
+                                    <p class="minor-information">Acompanhe os dados de classificação da competição</p>
+                                </div>
+                                <div class="high-score">
+                                    <img id="lider-logo" class="destaque-logo" alt="">
+                                    <div class="leader-ranking">
+                                        <span class="destaque-rotulo"><img src="../imagens/trofeu.png" alt="trofeu" width="20px"> High Score</span>
+                                        <strong id="lider-nome" class="destaque-nome">-</strong>
+                                    </div>
+                                    <div class="destaque-pontos">
+                                        <strong id="lider-pontos">0</strong>
+                                        <span>pts</span>
+                                    </div>
+                                </div>
+                            </header>
                         <div class="tabela-container">
                             <table class="tabela">
+                                <div class="titulo-classificacao"><h2>Classificação atual</h2>
+                                <span>8 equipes</span>
+                                </div>
                                 <thead>
                                     <tr>
                                         <th>#</th>
@@ -69,6 +90,12 @@
                     </section>
                     <section id="resultados" class="secao">
                         <h1>Resultados</h1>
+                    </section>
+                    <section id="notificacoes" class="secao">
+                        <h1>Notificações</h1>
+                    </section>
+                    <section id="perfil" class="secao">
+                        <h1>Perfil</h1>
                     </section>
                 </main>
             </div>
