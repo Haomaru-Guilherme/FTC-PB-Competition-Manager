@@ -23,7 +23,7 @@
                     <li><a href="#" class="ativo" data-secao="ranking" aria-label="Abrir seção de ranking">Ranking</a></li>
                     <li><a href="#" data-secao="equipes" aria-label="Abrir seção de equipes">Equipes</a></li>
                     <li><a href="#" data-secao="partidas" aria-label="Abrir seção de partidas">Partidas</a></li>
-                    <li><a href="#" data-secao="resultados" aria-label="Abrir seção de resutados">Resultados</a></li>
+                    <li><a href="#" data-secao="resultados" aria-label="Abrir seção de resultados">Resultados</a></li>
                     <li><a href="#" data-secao="notificacoes">Notificações</a></li>
                     <li><a href="#" data-secao="perfil" aria-label="Abrir seção de perfil">Perfil</a></li>
                 </ul>
@@ -60,21 +60,23 @@
                                     </div>
                                     <div class="destaque-pontos">
                                         <strong id="lider-pontos">0</strong>
-                                        <span>pts</span>
+                                        <span>W-L-T</span>
                                     </div>
                                 </div>
                             </header>
                         <div class="tabela-container">
+                            <div class="titulo-classificacao">
+                                <h2>Classificação atual</h2>
+                                <span id="total-equipes"> </span>
+                            </div>
                             <table class="tabela">
-                                <div class="titulo-classificacao"><h2>Classificação atual</h2>
-                                <span>8 equipes</span>
-                                </div>
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Equipe</th>
-                                        <th>Pontos</th>
-                                        <th>Partidas</th>
+                                        <th>EQUIPE</th>
+                                        <th>W-L-T</th>
+                                        <th>PARTIDAS</th>
+                                        <th>nOPR</th>
                                     </tr>
                                 </thead>
                                 <tbody id="ranking-corpo">
@@ -86,7 +88,11 @@
                         <h1>Equipes</h1>
                     </section>
                     <section id="partidas" class="secao">
-                        <h1>Partidas</h1>
+                        <header class="top-partidas">
+                            <h1>Partidas</h1>
+                            <p class="minor-information">Alianças e placares de cada partida</p>
+                        </header>
+                        <div class="lista-partidas" id="lista-partidas"></div>
                     </section>
                     <section id="resultados" class="secao">
                         <h1>Resultados</h1>
