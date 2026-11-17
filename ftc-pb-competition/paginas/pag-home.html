@@ -53,14 +53,16 @@
                                     <p class="minor-information">Acompanhe os dados de classificação da competição</p>
                                 </div>
                                 <div class="high-score">
-                                    <img id="lider-logo" class="destaque-logo" alt="">
+                                    <div id="lider-logos-container" class="destaque-logos-grupo">
+                                        <!-- As logos das equipes serão injetadas aqui via JavaScript -->
+                                    </div>
                                     <div class="leader-ranking">
                                         <span class="destaque-rotulo"><img src="../imagens/trofeu.png" alt="trofeu" width="20px"> High Score</span>
                                         <strong id="lider-nome" class="destaque-nome">-</strong>
                                     </div>
                                     <div class="destaque-pontos">
-                                        <strong id="lider-pontos">0</strong>
-                                        <span>W-L-T</span>
+                                        <strong id="lider-pontos">-</strong>
+                                        <span>Pontos</span>
                                     </div>
                                 </div>
                             </header>
@@ -92,16 +94,30 @@
                             <h1>Partidas</h1>
                             <p class="minor-information">Alianças e placares de cada partida</p>
                         </header>
+
+                        <form id="form-partida" class="form-partida">
+                            <h2>Adicionar partida</h2>
+
+                            <div class="form-aliancas">
+                                <fieldset class="form-alianca vermelha">
+                                    <legend>Aliança vermelha</legend>
+                                    <select id="v1" required></select>
+                                    <select id="v2" required></select>
+                                    <input type="number" id="vp" min="0" placeholder="Placar">
+                                </fieldset>
+
+                                <fieldset class="form-alianca azul">
+                                    <legend>Aliança azul</legend>
+                                    <select id="a1" required></select>
+                                    <select id="a2" required></select>
+                                    <input type="number" id="ap" min="0" placeholder="Placar">
+                                </fieldset>
+                            </div>
+
+                            <p class="form-erro" id="form-erro"></p>
+                            <button type="submit">Adicionar partida</button>
+                        </form>
                         <div class="lista-partidas" id="lista-partidas"></div>
-                    </section>
-                    <section id="resultados" class="secao">
-                        <h1>Resultados</h1>
-                    </section>
-                    <section id="notificacoes" class="secao">
-                        <h1>Notificações</h1>
-                    </section>
-                    <section id="perfil" class="secao">
-                        <h1>Perfil</h1>
                     </section>
                 </main>
             </div>
