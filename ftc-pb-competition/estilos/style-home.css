@@ -30,7 +30,7 @@ body {
 /* Coluna da direita: topbar em cima, conteúdo embaixo.
    min-width: 0 impede que tabelas largas estourem a tela. */
 .area-principal {
-    background-color: #eeeeee;
+    background-color: #e6e6e6;
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -333,6 +333,16 @@ body {
     padding: 1rem;
 }
 
+.classificacao-ranking{
+    display: flex;
+    justify-content: space-between;
+}
+
+.acesso-partidas{
+    color: #3b82f6;
+    cursor: pointer;
+}
+
 /* Título da tabela ("Classificação atual" + contagem de equipes). */
 .titulo-classificacao {
     padding-left: 1.01rem;
@@ -446,19 +456,29 @@ body {
     padding: 0.75rem 1rem;
     border-radius: 8px;
     border-left: 4px solid transparent;
+    background-color: #dfdfdf80;
+}
+
+.v{
+    border-left-color: #ef4444;
+}
+
+.a{
+    border-right: 4px solid #3b82f6;
+    border-left: none;
 }
 
 /* Aliança vermelha: faixa vermelha à esquerda. */
 .alianca.vermelha {
     border-left-color: #ef4444;
-    background-color: #fef2f2;
+    background-color: #ef444434;
 }
 
 /* Aliança azul: faixa azul à direita (espelhada em relação à vermelha). */
 .alianca.azul {
     border-right: 4px solid #3b82f6;
     border-left: none;
-    background-color: #eff6ff;
+    background-color: #3b83f646;
     flex-direction: row;
 }
 
@@ -476,8 +496,16 @@ body {
 }
 
 /* Placar da aliança vencedora em verde. */
-.alianca.vencedora .alianca-placar {
-    color: #16a34a;
+.alianca.vencedora-v .alianca-placar {
+    color: #ef4444;
+}
+
+.alianca.vencedora-a .alianca-placar {
+    color: #3b82f6;
+}
+
+.perdedora{
+    color: #e100ff;
 }
 
 /* Botão de excluir partida. */

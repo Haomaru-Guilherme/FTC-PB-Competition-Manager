@@ -61,25 +61,6 @@ const equipes = [
 // Chave de armazenamento
 const CHAVE_PARTIDAS = "ftc-partidas";
 
-// Partidas iniciais
-const PARTIDAS_INICIAIS = [
-    {
-        numero: 1,
-        vermelha: { equipes: [101, 102], placar: 120 },
-        azul: { equipes: [103, 104], placar: 95 },
-    },
-    {
-        numero: 2,
-        vermelha: { equipes: [105, 106], placar: 80 },
-        azul: { equipes: [107, 108], placar: 80 },
-    },
-    {
-        numero: 3,
-        vermelha: { equipes: [101, 103], placar: null },
-        azul: { equipes: [102, 104], placar: null },
-    },
-];
-
 // Carregar partidas salvas
 function carregarPartidas() {
     try {
@@ -182,12 +163,13 @@ function calcularMediaPontos() {
 
     partidas.forEach(function (p) {
         ["vermelha", "azul"].forEach(function (cor) {
-            const placar = p[cor].placar;
-            // Considera apenas partidas que já possuem placar lançado
-            if (placar !== null && placar !== undefined) {
+            // Mude de 'placar' para 'pontosNormais' (ou a propriedade que isola o vnp/anp)
+            const pontosNormais = p[cor].pontosNormais; 
+            
+            if (pontosNormais !== null && pontosNormais !== undefined) {
                 p[cor].equipes.forEach(function (id) {
                     if (acumulador[id]) {
-                        acumulador[id].somaPontos += placar;
+                        acumulador[id].somaPontos += pontosNormais;
                         acumulador[id].partidasJogadas++;
                     }
                 });
@@ -199,7 +181,6 @@ function calcularMediaPontos() {
     Object.keys(acumulador).forEach(function (id) {
         const dados = acumulador[id];
         if (dados.partidasJogadas > 0) {
-            // Calcula a média e arredonda para 1 casa decimal (ex: 95.5)
             medias[id] = Number((dados.somaPontos / dados.partidasJogadas).toFixed(1));
         } else {
             medias[id] = 0;
@@ -366,7 +347,7 @@ function montarPartidas() {
         card.className = "partida";
 
         card.innerHTML = `
-            <div class="alianca vermelha ${r === "vermelha" ? "vencedora" : ""}">
+            <div class="alianca v ${r === "vermelha" ? "vencedora-v vermelha" : ""}">
 
                 <div class="alianca-equipes">
                     ${nomes("vermelha")}
@@ -382,7 +363,7 @@ function montarPartidas() {
                 Q${p.numero}
             </div>
 
-            <div class="alianca azul ${r === "azul" ? "vencedora" : ""}">
+            <div class="alianca a ${r === "azul" ? "vencedora-a azul" : ""}">
 
                 <strong class="alianca-placar">
                     ${p.azul.placar ?? "-"}
@@ -466,8 +447,13 @@ formPartida.addEventListener("submit", function (event) {
     });
 
     // Capturar placares
-    const placarVermelha = document.getElementById("vp").value;
-    const placarAzul = document.getElementById("ap").value;
+    const placarVermelha = document.getElementById("vnp").value;
+    const placarAzul = document.getElementById("anp").value;
+    const penaltyVermelha = document.getElementById("vpp").value;
+    const penaltyAzul = document.getElementById("app").value;
+    
+    const resultV = Number(penaltyVermelha) + Number(placarVermelha);
+    const resultA = Number(penaltyAzul) + Number(placarAzul);
 
     // Validar equipes
     if (ids.includes(0)) {
@@ -497,24 +483,18 @@ formPartida.addEventListener("submit", function (event) {
 
     // Adicionar nova partida
     partidas.push({
-
-        numero: proximoNumero(),
-
-        vermelha: {
-            equipes: [ids[0], ids[1]],
-            placar: placarVermelha === ""
-                ? null
-                : Number(placarVermelha)
-        },
-
-        azul: {
-            equipes: [ids[2], ids[3]],
-            placar: placarAzul === ""
-                ? null
-                : Number(placarAzul)
-        }
-
-    });
+    numero: proximoNumero(),
+    vermelha: {
+        equipes: [ids[0], ids[1]],
+        placar: (placarVermelha === "" || penaltyVermelha === "") ? null : Number(resultV),
+        pontosNormais: placarVermelha === "" ? null : Number(placarVermelha)
+    },
+    azul: {
+        equipes: [ids[2], ids[3]],
+        placar: (placarAzul === "" || penaltyAzul === "") ? null : Number(resultA),
+        pontosNormais: placarAzul === "" ? null : Number(placarAzul)
+    }
+});
 
     // Salvar e atualizar informações
     salvarPartidas();

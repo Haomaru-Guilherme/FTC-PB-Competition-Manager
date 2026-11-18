@@ -67,9 +67,14 @@
                                 </div>
                             </header>
                         <div class="tabela-container">
-                            <div class="titulo-classificacao">
-                                <h2>Classificação atual</h2>
-                                <span id="total-equipes"> </span>
+                            <div class="classificacao-ranking">
+                                <div class="titulo-classificacao">
+                                    <h2>Classificação atual</h2>
+                                    <span id="total-equipes"> </span>
+                                </div>
+                                <div class="acesso-partidas">
+                                    <span data-secao="partidas">Ver partidas →</span>
+                                </div>
                             </div>
                             <table class="tabela">
                                 <thead>
@@ -103,14 +108,16 @@
                                     <legend>Aliança vermelha</legend>
                                     <select id="v1" required></select>
                                     <select id="v2" required></select>
-                                    <input type="number" id="vp" min="0" placeholder="Placar">
+                                    <input type="number" id="vnp" min="0" placeholder="Placar">
+                                    <input type="number" id="vpp" min="0" placeholder="Penalidades">
                                 </fieldset>
 
                                 <fieldset class="form-alianca azul">
                                     <legend>Aliança azul</legend>
                                     <select id="a1" required></select>
                                     <select id="a2" required></select>
-                                    <input type="number" id="ap" min="0" placeholder="Placar">
+                                    <input type="number" id="anp" min="0" placeholder="Placar">
+                                    <input type="number" id="app" min="0" placeholder="Penalidades">
                                 </fieldset>
                             </div>
 
@@ -118,6 +125,15 @@
                             <button type="submit">Adicionar partida</button>
                         </form>
                         <div class="lista-partidas" id="lista-partidas"></div>
+                    </section>
+                    <section id="Resultados" class="secao">
+                        <h1>Resultados</h1>
+                    </section>
+                    <section id="notificacoes" class="secao">
+                        <h1>Notificações</h1>
+                    </section>
+                    <section id="perfil" class="secao">
+                        <h1>Perfil</h1>
                     </section>
                 </main>
             </div>
