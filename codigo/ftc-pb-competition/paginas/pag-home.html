@@ -23,7 +23,6 @@
                     <li><a href="#" class="ativo" data-secao="ranking" aria-label="Abrir seção de ranking">Ranking</a></li>
                     <li><a href="#" data-secao="equipes" aria-label="Abrir seção de equipes">Equipes</a></li>
                     <li><a href="#" data-secao="partidas" aria-label="Abrir seção de partidas">Partidas</a></li>
-                    <li><a href="#" data-secao="resultados" aria-label="Abrir seção de resultados">Resultados</a></li>
                     <li><a href="#" data-secao="notificacoes">Notificações</a></li>
                     <li><a href="#" data-secao="perfil" aria-label="Abrir seção de perfil">Perfil</a></li>
                 </ul>
@@ -92,7 +91,42 @@
                         </div>
                     </section>
                     <section id="equipes" class="secao">
-                        <h1>Equipes</h1>
+                        <header class="top-equipes">
+                            <div>
+                                <h1>Equipes</h1>
+                                <p class="minor-information">Gerencie e cadastre as equipes participantes</p>
+                            </div>
+                        </header>
+
+                        <!-- Formulário para cadastrar nova equipe -->
+                        <form id="form-equipe" class="form-equipe">
+                            <h2>Adicionar nova equipe</h2>
+                            
+                            <div class="form-equipe-campos">
+                                <div class="grupo-input">
+                                    <label for="equipe-id">Número da Equipe</label>
+                                    <input type="number" id="equipe-id" min="1" placeholder="Ex: 109" required>
+                                </div>
+
+                                <div class="grupo-input">
+                                    <label for="equipe-nome">Nome da Equipe</label>
+                                    <input type="text" id="equipe-nome" placeholder="Ex: CyberTitans" required>
+                                </div>
+
+                                <div class="grupo-input">
+                                    <label for="equipe-logo">URL da Logo (Opcional)</label>
+                                    <input type="url" id="equipe-logo" placeholder="https://exemplo.com/logo.png">
+                                </div>
+                            </div>
+
+                            <p class="form-erro" id="form-erro-equipe"></p>
+                            <button type="submit">Cadastrar equipe</button>
+                        </form>
+
+                        <!-- Grade onde os cards das equipes serão exibidos -->
+                        <div class="container-cards-equipes" id="lista-equipes">
+                            <!-- Inserido via JavaScript -->
+                        </div>
                     </section>
                     <section id="partidas" class="secao">
                         <header class="top-partidas">
@@ -126,14 +160,78 @@
                         </form>
                         <div class="lista-partidas" id="lista-partidas"></div>
                     </section>
-                    <section id="Resultados" class="secao">
-                        <h1>Resultados</h1>
-                    </section>
                     <section id="notificacoes" class="secao">
-                        <h1>Notificações</h1>
+                        <header class="top-notificacoes">
+                            <h1>Notificações</h1>
+                            <p class="minor-information">Acompanhe as atualizações e eventos recentes da competição</p>
+                        </header>
+
+                        <div class="acoes-notificacoes">
+                            <button id="btn-limpar-notificacoes" class="btn-secundario">Limpar notificações</button>
+                        </div>
+
+                        <div class="lista-notificacoes" id="lista-notificacoes">
+                            <!-- Inserido via JavaScript -->
+                        </div>
                     </section>
                     <section id="perfil" class="secao">
-                        <h1>Perfil</h1>
+                        <header class="top-perfil">
+                            <h1>Perfil do Usuário</h1>
+                            <p class="minor-information">Gerencie suas informações pessoais e preferências do sistema</p>
+                        </header>
+
+                        <div class="perfil-grid-layout">
+                            <!-- Card de Informações Principais -->
+                            <div class="card-perfil-info">
+                                <div class="perfil-banner-avatar">
+                                    <div class="perfil-avatar-grande" id="perfil-avatar-inicial">J</div>
+                                    <div class="perfil-dados-principais">
+                                        <h2 id="perfil-nome-exibicao">João Silva</h2>
+                                        <span id="perfil-cargo-exibicao">Juiz / Administrador FTC</span>
+                                        <span class="perfil-localizacao">📍 Regional Paraíba - PB</span>
+                                    </div>
+                                </div>
+
+                                <div class="perfil-estatisticas-rapidas">
+                                    <div class="stat-item">
+                                        <strong id="stat-partidas-registradas">0</strong>
+                                        <span>Partidas Registradas</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <strong id="stat-equipes-cadastradas">0</strong>
+                                        <span>Equipes no Torneio</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Formulário de Edição de Perfil -->
+                            <form id="form-perfil" class="form-perfil-config">
+                                <h2>Editar Informações</h2>
+
+                                <div class="grupo-input">
+                                    <label for="input-nome-usuario">Nome Completo</label>
+                                    <input type="text" id="input-nome-usuario" value="João Silva" required>
+                                </div>
+
+                                <div class="grupo-input">
+                                    <label for="input-email-usuario">E-mail de Contato</label>
+                                    <input type="email" id="input-email-usuario" value="joao.silva@ftcpb.com" required>
+                                </div>
+
+                                <div class="grupo-input">
+                                    <label for="input-cargo-usuario">Cargo / Função</label>
+                                    <select id="input-cargo-usuario" required>
+                                        <option value="" disabled selected>Selecione o cargo</option>
+                                        <option value="Juiz de sala">Juiz de sala</option>
+                                        <option value="Juiz de arena">Juiz de arena</option>
+                                        <option value="Juiz chefe">Juiz chefe</option>
+                                    </select>
+                                </div>
+
+                                <p class="form-erro" id="form-erro-perfil"></p>
+                                <button type="submit" class="btn-primario">Salvar alterações</button>
+                            </form>
+                        </div>
                     </section>
                 </main>
             </div>
