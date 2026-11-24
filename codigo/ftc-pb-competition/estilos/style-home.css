@@ -155,6 +155,7 @@ body {
 
 /* Bolinha de notificação no canto do sino. */
 .ponto {
+    display: none;
     position: absolute;
     top: 0;
     right: 0;
@@ -641,5 +642,381 @@ body {
         inset: 0;                         /* ocupa a tela inteira */
         background-color: rgba(0, 0, 0, 0.5);
         z-index: 20;                      /* abaixo do menu (30) */
+    }
+}
+
+
+/* =====================================================================
+   ESTILOS DA SEÇÃO DE EQUIPES
+   ===================================================================== */
+
+.top-equipes {
+    margin-bottom: 1.5rem;
+}
+
+/* Formulário de equipe */
+.form-equipe {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-equipe h2 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #0f172a;
+}
+
+.form-equipe-campos {
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr;
+    gap: 1rem;
+}
+
+.grupo-input {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.grupo-input label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #64748b;
+}
+
+.grupo-input input {
+    padding: 0.6rem 0.75rem;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 0.9rem;
+}
+
+.form-equipe button {
+    align-self: flex-start;
+    padding: 0.7rem 1.25rem;
+    border: none;
+    border-radius: 6px;
+    background-color: #1e293b;
+    color: #fff;
+    font-family: inherit;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.form-equipe button:hover {
+    background-color: #334155;
+}
+
+/* Grade de cards de equipes */
+.container-cards-equipes {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1rem;
+}
+
+.card-equipe {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    border: 1px solid #e5e7eb;
+    position: relative;
+}
+
+.card-equipe-logo {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: contain;
+    background-color: #f1f5f9;
+    padding: 4px;
+    border: 1px solid #e2e8f0;
+}
+
+.card-equipe-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    min-width: 0;
+}
+
+.card-equipe-id {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #3b82f6;
+    text-transform: uppercase;
+}
+
+.card-equipe-nome {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #0f172a;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Botão de excluir equipe dentro do card */
+.btn-excluir-equipe {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    background: none;
+    border: none;
+    color: #94a3b8;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 0.2rem;
+}
+
+.btn-excluir-equipe:hover {
+    color: #dc2626;
+}
+
+/* Responsividade do formulário de equipes */
+@media (max-width: 768px) {
+    .form-equipe-campos {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =====================================================================
+   ESTILOS DA SEÇÃO DE NOTIFICAÇÕES
+   ===================================================================== */
+
+.top-notificacoes {
+    margin-bottom: 1rem;
+}
+
+.acoes-notificacoes {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1rem;
+}
+
+.btn-secundario {
+    background-color: #e2e8f0;
+    color: #334155;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.btn-secundario:hover {
+    background-color: #cbd5e1;
+}
+
+.lista-notificacoes {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.card-notificacao {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    border: 1px solid #e5e7eb;
+    border-left: 4px solid #3b82f6;
+}
+
+/* Cores de borda baseadas no tipo de notificação */
+.card-notificacao.partida { border-left-color: #22c55e; }
+.card-notificacao.highscore { border-left-color: #eab308; }
+.card-notificacao.equipe { border-left-color: #3b82f6; } 
+
+.notificacao-organizacao{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.notificacao-icone {
+    font-size: 1.25rem;
+    padding-top: 0.1rem;
+}
+
+.notificacao-conteudo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    flex: 1;
+}
+
+.notificacao-titulo {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #0f172a;
+}
+
+.notificacao-texto {
+    font-size: 0.85rem;
+    color: #64748b;
+}
+
+.notificacao-tempo {
+    font-size: 0.75rem;
+    color: #94a3b8;
+}
+
+.sem-notificacoes {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    color: #94a3b8;
+    font-size: 0.9rem;
+    border: 1px solid #e5e7eb;
+}
+
+/* =====================================================================
+   ESTILOS DA SEÇÃO DE PERFIL
+   ===================================================================== */
+
+.top-perfil {
+    margin-bottom: 1.5rem;
+}
+
+.perfil-grid-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 1.5rem;
+}
+
+/* Card de informações à esquerda */
+.card-perfil-info {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 1px solid #e5e7eb;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    height: fit-content;
+}
+
+.perfil-banner-avatar {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.perfil-avatar-grande {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background-color: #1e293b;
+    color: #fff;
+    display: grid;
+    place-items: center;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.perfil-dados-principais {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.perfil-dados-principais h2 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #0f172a;
+}
+
+.perfil-dados-principais span {
+    font-size: 0.85rem;
+    color: #64748b;
+}
+
+.perfil-localizacao {
+    color: #94a3b8 !important;
+    font-size: 0.75rem !important;
+}
+
+.perfil-estatisticas-rapidas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #f1f5f9;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f8fafc;
+    padding: 0.75rem;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+}
+
+.stat-item strong {
+    font-size: 1.25rem;
+    color: #0f172a;
+}
+
+.stat-item span {
+    font-size: 0.7rem;
+    color: #64748b;
+    text-align: center;
+}
+
+/* Formulário de edição */
+.form-perfil-config {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 1px solid #e5e7eb;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-perfil-config h2 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.1rem;
+    color: #0f172a;
+}
+
+.form-perfil-config button {
+    align-self: flex-start;
+    padding: 0.7rem 1.25rem;
+    border: none;
+    border-radius: 6px;
+    background-color: #1e293b;
+    color: #fff;
+    font-family: inherit;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.form-perfil-config button:hover {
+    background-color: #334155;
+}
+
+/* Responsividade do perfil */
+@media (max-width: 768px) {
+    .perfil-grid-layout {
+        grid-template-columns: 1fr;
     }
 }
