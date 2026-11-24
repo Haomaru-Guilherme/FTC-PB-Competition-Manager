@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>FTC|PB Regional</title>
+        <link rel="stylesheet" href="../estilos/base.css">
+        <link rel="stylesheet" href="../estilos/style-home.css">
+        <script src="../scripts/script-home.js" defer></script>
+    </head>
+    <body>
+        <div class="layout">
+            <nav class="menu">
+                <div class="organization">
+                    <div class="box-ftc">FTC</div>
+                    <div class="column-itens">
+                        <strong>COMPETITION</strong>
+                        <span>REGIONAL · PARAÍBA</span>
+                    </div>
+                </div>
+
+                <ul class="menu-lista">
+                    <li><a href="#" class="ativo" data-secao="ranking" aria-label="Abrir seção de ranking">Ranking</a></li>
+                    <li><a href="#" data-secao="equipes" aria-label="Abrir seção de equipes">Equipes</a></li>
+                    <li><a href="#" data-secao="partidas" aria-label="Abrir seção de partidas">Partidas</a></li>
+                    <li><a href="#" data-secao="resultados" aria-label="Abrir seção de resultados">Resultados</a></li>
+                    <li><a href="#" data-secao="notificacoes">Notificações</a></li>
+                    <li><a href="#" data-secao="perfil" aria-label="Abrir seção de perfil">Perfil</a></li>
+                </ul>
+                <a class="btn-sair" href="pag-login.html">Sair da conta <span>↩</span></a>
+            </nav>
+            <div class="overlay" id="overlay"></div>
+            
+            <div class="area-principal">
+                    <header class="topbar">
+                        <button class="btn-menu" id="btn-menu" aria-label="Abrir menu">☰</button>
+                        <input type="search" class="busca" placeholder="🔍︎ Buscar equipes...">
+                        <div class="topbar-acoes">
+                            <button class="icone-btn" aria-label="Notificações" data-secao="notificacoes">
+                                <img src="../imagens/sino.png" alt="sino" width="20"><span class="ponto"></span>
+                            </button>
+                            <div class="perfil">
+                                <div class="avatar" data-secao="perfil" aria-label="Abrir perfil">J</div>
+                            </div>
+                        </div>
+                    </header>
+                
+                <main class="conteudo">
+                    <section id="ranking" class="secao ativa">
+                            <header class="top-ranking">
+                                <div class="information-ranking">
+                                    <h1>Ranking</h1>
+                                    <p class="minor-information">Acompanhe os dados de classificação da competição</p>
+                                </div>
+                                <div class="high-score">
+                                    <div id="lider-logos-container" class="destaque-logos-grupo">
+                                        <!-- As logos das equipes serão injetadas aqui via JavaScript -->
+                                    </div>
+                                    <div class="leader-ranking">
+                                        <span class="destaque-rotulo"><img src="../imagens/trofeu.png" alt="trofeu" width="20px"> High Score</span>
+                                        <strong id="lider-nome" class="destaque-nome">-</strong>
+                                    </div>
+                                    <div class="destaque-pontos">
+                                        <strong id="lider-pontos">-</strong>
+                                        <span>Pontos</span>
+                                    </div>
+                                </div>
+                            </header>
+                        <div class="tabela-container">
+                            <div class="classificacao-ranking">
+                                <div class="titulo-classificacao">
+                                    <h2>Classificação atual</h2>
+                                    <span id="total-equipes"> </span>
+                                </div>
+                                <div class="acesso-partidas">
+                                    <span data-secao="partidas">Ver partidas →</span>
+                                </div>
+                            </div>
+                            <table class="tabela">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>EQUIPE</th>
+                                        <th>W-L-T</th>
+                                        <th>PARTIDAS</th>
+                                        <th>nOPR</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="ranking-corpo">
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                    <section id="equipes" class="secao">
+                        <h1>Equipes</h1>
+                    </section>
+                    <section id="partidas" class="secao">
+                        <header class="top-partidas">
+                            <h1>Partidas</h1>
+                            <p class="minor-information">Alianças e placares de cada partida</p>
+                        </header>
+
+                        <form id="form-partida" class="form-partida">
+                            <h2>Adicionar partida</h2>
+
+                            <div class="form-aliancas">
+                                <fieldset class="form-alianca vermelha">
+                                    <legend>Aliança vermelha</legend>
+                                    <select id="v1" required></select>
+                                    <select id="v2" required></select>
+                                    <input type="number" id="vnp" min="0" placeholder="Placar">
+                                    <input type="number" id="vpp" min="0" placeholder="Penalidades">
+                                </fieldset>
+
+                                <fieldset class="form-alianca azul">
+                                    <legend>Aliança azul</legend>
+                                    <select id="a1" required></select>
+                                    <select id="a2" required></select>
+                                    <input type="number" id="anp" min="0" placeholder="Placar">
+                                    <input type="number" id="app" min="0" placeholder="Penalidades">
+                                </fieldset>
+                            </div>
+
+                            <p class="form-erro" id="form-erro"></p>
+                            <button type="submit">Adicionar partida</button>
+                        </form>
+                        <div class="lista-partidas" id="lista-partidas"></div>
+                    </section>
+                    <section id="Resultados" class="secao">
+                        <h1>Resultados</h1>
+                    </section>
+                    <section id="notificacoes" class="secao">
+                        <h1>Notificações</h1>
+                    </section>
+                    <section id="perfil" class="secao">
+                        <h1>Perfil</h1>
+                    </section>
+                </main>
+            </div>
+        </div>
+    </body>
+</html>
