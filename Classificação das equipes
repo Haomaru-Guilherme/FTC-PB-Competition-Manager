@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FTC-PB | Ranking</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#0f172a;color:#fff;padding:20px}
+header{text-align:center;margin-bottom:25px}
+header h1{color:#f97316;font-size:28px}
+header p{color:#94a3b8}
+.container{max-width:800px;margin:0 auto}
+.card{background:#1e293b;padding:20px;border-radius:12px}
+table{width:100%;border-collapse:collapse;margin-top:10px}
+th{text-align:left;color:#94a3b8;font-size:13px;padding:10px;border-bottom:1px solid #334155}
+td{padding:12px 10px;border-bottom:1px solid #1e293b}
+.pos{font-weight:bold;color:#f97316;font-size:18px}
+.badge{background:#f97316;padding:4px 10px;border-radius:20px;font-size:12px;font-weight:bold}
+.topo{background:#f97316 !important;color:#fff}
+.topo td{border:none}
+input{width:100%;padding:12px;border-radius:8px;border:1px solid #334155;background:#0f172a;color:#fff;margin:10px 0;outline:none}
+button{width:100%;padding:12px;border:none;border-radius:8px;background:#f97316;color:#fff;font-weight:bold;cursor:pointer;margin-top:10px}
+.grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+label{font-size:13px;color:#cbd5e1}
+</style>
+</head>
+<body>
+<header><h1>🏆 FTC-PB Competition Manager</h1><p>Ranking - Classificação Geral</p></header>
+<div class="container">
+<div class="card">
+<h2>Adicionar Pontos</h2>
+<div class="grid">
+<div><label>Equipe</label><input id="nome" placeholder="Ex: Criadores"></div>
+<div><label>Pontos</label><input id="pontos" type="number" placeholder="Ex: 120"></div>
+<div><label>Vitórias</label><input id="vitorias" type="number" placeholder="Ex: 3"></div>
+</div>
+<button onclick="add()">Adicionar / Atualizar</button>
+<table>
+<thead><tr><th>#</th><th>Equipe</th><th>Pontos</th><th>Vitórias</th><th></th></tr></thead>
+<tbody id="tbody"></tbody>
+</table>
+</div>
+</div>
+<script>
+let dados = JSON.parse(localStorage.getItem('ftc-pb-ranking')||'[]');
+function render(){
+  dados.sort((a,b)=>b.pontos-a.pontos);
+  document.getElementById('tbody').innerHTML = dados.map((e,i)=>`
+  <tr class="${i===0?'topo':''}"><td class="pos">${i+1}º</td><td><b>${e.nome}</b></td><td>${e.pontos} pts</td><td>${e.vitorias} 🏆</td><td><button style="width:auto;padding:6px 10px;background:#ef4444;margin:0" onclick="remover(${i})">X</button></td></tr>`).join('') || '<tr><td colspan="5" style="text-align:center;color:#64748b">Nenhuma equipe ainda</td></tr>';
+}
+function add(){
+  const nome=document.getElementById('nome').value.trim();
+  const pontos=parseInt(document.getElementById('pontos').value)||0);
+  const vitorias=parseInt(document.getElementById('vitorias').value)||0;
+  if(!nome) return alert('Coloca o nome da equipe!');
+  let achou=dados.find(e=>e.nome.toLowerCase()===nome.toLowerCase());
+  if(achou){achou.pontos+=pontos;achou.vitorias+=vitorias}else dados.push({nome,pontos,vitorias});
+  localStorage.setItem('ftc-pb-ranking',JSON.stringify(dados));
+  document.getElementById('nome').value='';document.getElementById('pontos').value='';document.getElementById('vitorias').value='';
+  render();
+}
+function remover(i){dados.splice(i,1);localStorage.setItem('ftc-pb-ranking',JSON.stringify(dados));render();}
+render();
+</script>
+</body>
+</html>
