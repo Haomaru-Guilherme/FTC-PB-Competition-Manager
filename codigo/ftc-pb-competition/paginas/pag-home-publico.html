@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>FTC PB Regional - Acompanhamento Público</title>
+        <link rel="stylesheet" href="../estilos/base.css">
+        <link rel="stylesheet" href="../estilos/style-home.css">
+        <link rel="icon" type="image/png" href="../imagens/robo.png">
+        <script src="../scripts/script-home.js" defer></script>
+    </head>
+    <body>
+        <div class="layout">
+            <nav class="menu">
+                <div class="organization">
+                    <div class="box-ftc">FTC</div>
+                    <div class="column-itens">
+                        <strong>PÚBLICO</strong>
+                        <span>REGIONAL · PARAÍBA</span>
+                    </div>
+                </div>
+
+                <ul class="menu-lista">
+                    <li><a href="#" class="ativo" data-secao="ranking" aria-label="Abrir seção de ranking">Ranking</a></li>
+                    <li><a href="#" data-secao="equipes" aria-label="Abrir seção de equipes">Equipes</a></li>
+                    <li><a href="#" data-secao="partidas" aria-label="Abrir seção de partidas">Partidas</a></li>
+                    <li><a href="#" data-secao="notificacoes">Notificações</a></li>
+                </ul>
+                <a class="btn-sair" href="https//google.com.br">Voltar a navegação <span></span></a>
+            </nav>
+            <div class="overlay" id="overlay"></div>
+            
+            <div class="area-principal">
+                <header class="topbar">
+                    <button class="btn-menu" id="btn-menu" aria-label="Abrir menu">☰</button>
+                    <div class="topbar-titulo-publico">
+                        <span>Acompanhamento em Tempo Real</span>
+                    </div>
+                    <div class="topbar-acoes">
+                        <button class="icone-btn" aria-label="Notificações" data-secao="notificacoes">
+                                <img src="../imagens/sino.png" alt="sino" width="20"><span class="ponto"></span>
+                        </button>
+                        <div class="perfil">
+                            <div class="avatar-publico" title="Modo Espectador">
+                                <img src="../imagens/robo.png" alt="robô observador" width="30px">
+                            </div>
+                        </div>
+                    </div>
+                </header>
+                
+                <main class="conteudo">
+                    <!-- Seção Ranking -->
+                    <section id="ranking" class="secao ativa">
+                        <header class="top-ranking">
+                            <div class="information-ranking">
+                                <h1>Ranking</h1>
+                                <p class="minor-information">Acompanhe os dados de classificação da competição em tempo real</p>
+                            </div>
+                            <div class="high-score">
+                                <div id="lider-logos-container" class="destaque-logos-grupo">
+                                    <!-- Injetado via JS -->
+                                </div>
+                                <div class="leader-ranking">
+                                    <span class="destaque-rotulo">High Score</span>
+                                    <strong id="lider-nome" class="destaque-nome">-</strong>
+                                </div>
+                                <div class="destaque-pontos">
+                                    <strong id="lider-pontos">-</strong>
+                                    <span>Pontos</span>
+                                </div>
+                            </div>
+                        </header>
+                        <div class="tabela-container">
+                            <div class="classificacao-ranking">
+                                <div class="titulo-classificacao">
+                                    <h2>Classificação atual</h2>
+                                    <span id="total-equipes"> </span>
+                                </div>
+                                <div class="acesso-partidas">
+                                    <span data-secao="partidas">Ver partidas →</span>
+                                </div>
+                            </div>
+                            <table class="tabela">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>EQUIPE</th>
+                                        <th>W-L-T</th>
+                                        <th>PARTIDAS</th>
+                                        <th>nOPR</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="ranking-corpo">
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+
+                    <!-- Seção Equipes (Somente visualização) -->
+                    <section id="equipes" class="secao">
+                        <header class="top-equipes">
+                            <div>
+                                <h1>Equipes Participantes</h1>
+                                <p class="minor-information">Conheça todas as equipes cadastradas no torneio</p>
+                            </div>
+                        </header>
+                        <div class="container-cards-equipes" id="lista-equipes">
+                            <!-- Injetado via JS -->
+                        </div>
+                    </section>
+
+                    <!-- Seção Partidas (Somente visualização) -->
+                    <section id="partidas" class="secao">
+                        <header class="top-partidas">
+                            <h1>Partidas</h1>
+                            <p class="minor-information">Alianças e placares atualizados</p>
+                        </header>
+                        <div class="lista-partidas" id="lista-partidas">
+                            <!-- Injetado via JS -->
+                        </div>
+                    </section>
+                    <section id="notificacoes" class="secao">
+                        <header class="top-notificacoes">
+                            <h1>Notificações</h1>
+                            <p class="minor-information">Acompanhe as atualizações e eventos recentes da competição</p>
+                        </header>
+
+                        <div class="acoes-notificacoes">
+                            <button id="btn-limpar-notificacoes" class="btn-secundario">Limpar notificações</button>
+                        </div>
+
+                        <div class="lista-notificacoes" id="lista-notificacoes">
+                            <!-- Inserido via JavaScript -->
+                        </div>
+                    </section>
+                </main>
+            </div>
+        </div>
+    </body>
+</html>
